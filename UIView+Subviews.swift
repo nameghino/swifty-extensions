@@ -18,5 +18,10 @@ extension UIView {
             view.heightAnchor.constraint(equalTo: heightAnchor, multiplier: heightPercentage),
         ])
     }
+    
+    func isSubview(of view: UIView) -> Bool {
+        guard let p = superview else { return false }
+        if p == view { return true }
+        return p.isSubview(of: view)
+    }
 }
-
